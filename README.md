@@ -1,6 +1,8 @@
 # fast-and-furious
 A visualization of character connections across the various Fast and Furious films. A work in progress.
 
+![Fast and Furious Screenshot](https://pbs.twimg.com/media/Cg3rrHRU4AAEteG.jpg)
+
 To use:
 
 1. Checkout

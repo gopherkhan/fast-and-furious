@@ -1,0 +1,94 @@
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
+
+  /*
+
+        dark gray: #525564;
+        lighter gray: #74828F
+        bluish: #96c0ce;
+        brownish-gray: #BeB9B5;
+        red: #c25b56;
+        off-white: #FEF6EB;
+
+        old colors:
+
+        blue: #265CC1;
+        white: #F7F8FD;
+        lighter-blue-gray: #F7F8FD;
+        green: #59DE4E;
+        something: #4EB5D8;
+      */
+
+ body {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: #525564;
+	font-family: "Raleway", Helvetica, 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	/*font-family: Tahoma,Verdana,Segoe,sans-serif; */
+	color: #FEF6EB;
+}
+
+line {
+	fill: none;
+	stroke: "#FEF6EB";
+}
+
+line.chronology {
+	stroke: #BEB9B5;
+	stroke-width: 8px;
+}
+
+line.active {
+	stroke: #C25B56;
+	stroke-width: 3px;
+}
+
+line.active.chronology {
+	stroke-width: 10px;
+}
+
+circle {
+	stroke: #96C0CE;
+	stroke-width: 2px;
+	fill: #74828F;
+	r: 8px;
+	cursor: pointer;
+}
+
+circle.movie {
+	stroke: #BEB9B5;
+	r: 15px;
+}
+
+circle.short {
+	r: 10px;
+	stroke: #BEB9B5; 
+}
+
+circle.cast {
+	fill: #c25b56;
+}
+
+circle:hover, 
+circle.active {
+	stroke-width: 4px;
+}
+
+text {
+	font-family: "Raleway", Helvetica, 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	/*font-family: Tahoma,Verdana,Segoe,sans-serif;*/
+	fill: #F7F8FD;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.viz-party {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border: 2px solid green;
+}

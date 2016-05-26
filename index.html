@@ -5,12 +5,12 @@
     <style type="text/css">
       /*
 
-        dark gray: 525564;
-        lighter gray: 74828F
-        bluish: 96c0ce;
-        brownish-gray: BeB9B5;
-        red: c25b56;
-        off-white: FEF6EB;
+        dark gray: #525564;
+        lighter gray: #74828F
+        bluish: #96c0ce;
+        brownish-gray: #BeB9B5;
+        red: #c25b56;
+        off-white: #FEF6EB;
 
         old colors:
 
@@ -60,7 +60,17 @@
         r: 15px;
       }
 
-      circle:hover {
+      circle.short {
+        r: 10px;
+        stroke: #BEB9B5; 
+      }
+
+      circle.cast {
+        fill: #c25b56;
+      }
+
+      circle:hover, 
+      circle.active {
         stroke-width: 4px;
       }
 
@@ -70,7 +80,7 @@
       }
 
       .hidden {
-        display: none;
+        visibility: hidden;
       }
 
       .viz-party {

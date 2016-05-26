@@ -158,7 +158,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       // and how many links there are to display
       force.on("tick", forceTick)
               .charge(function(d) {
-                if (d.type === 'movie') {
+                if (isMovie(d)) {
                   return -200;
                 }
                 return -20 * Math.max(d.numLinks, d.span);
@@ -176,17 +176,28 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
     }
   }
 
+  function isMovie(d) {
+    return d.type === 'movie' || d.type === 'short';
+  }
+
+
+  var lastTickTimeout;
   function forceTick(e) {
+    
+    if (lastTickTimeout) {
+      window.clearTimeout(lastTickTimeout);
+    }
+
     node
       .attr("cx", function (d) {
-        if (d.type === 'movie') {
-          d.x = d.order * (width / 11);
+        if (isMovie(d)) {
+          d.x = d.order * (width / 10);
         }
         return d.x;
       })
       .attr("cy", function (d) {
-        if (d.type === "movie") {
-          var fudge = d.id === 'blt' ? 40 : 0;
+        if (isMovie(d)) {
+          var fudge = d.id === 'blt' ? 60 : 0;
           d.y = (height / 2) - fudge;
         }
         return d.y;
@@ -199,13 +210,17 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       .attr("y2", function (d) { return d.target.y; });
 
     text.attr("x", function(d) {
-            var margin = (d.type === 'movie') ? margins.movie : margins.cast;
-            return d.x + margin;
+            return d.x + getMargin(d);
           })
           .attr("y", function(d) {
-            var margin = (d.type === 'movie') ? margins.movie : margins.cast;
-            return d.y + margin;
+            return d.y + getMargin(d);
           });
+
+    lastTickTimeout = window.setTimeout(checkMovieLabels, 200);
+  }
+
+  function getMargin(d) {
+    return isMovie(d) ? margins.movie : margins.cast;
   }
 
   // switches filter option to new filter
@@ -252,7 +267,8 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
     node.enter().append("circle")
       .attr("class", function(d) { return "node " + d.type; })
       .attr("cx", function(d) {return d.x; })
-      .attr("cy", function(d) { return d.y; });
+      .attr("cy", function(d) { return d.y; })
+      .attr('data-id', function(d) { return d.id; });
       //.attr("r", function(d) { return d.radius; })
       // .style("fill", function(d) { return nodeColors(d.artist); });
       // .style("stroke", function(d) { return strokeFor(d); })
@@ -274,7 +290,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       .data(curNodesData, function(d) { return d.id; });
 
     text.enter().append("text")
-      .attr("class", "label hidden")
+      .attr("class", function(d) { return "label hidden " + d.type; })
       .attr("data-id", function(d) { return d.id; })
       .attr("x", function(d) { return d.x + 15; })
       .attr("y", function(d) { return d.y + 15; })
@@ -283,21 +299,26 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
 
   function showDetails (d) {
     var textIds = [d.id];
-    if (d.type !== "movie") {
+    if (!isMovie(d)) {
       curLinksData.forEach(function (l) {
         if (l.source.id === d.id) {
           textIds.push(l.target.id);
         }
       });
     }
+    // a little sloppy here, but I'll consolidate another night.
     var textIdsCss = textIds.map(function(id) { return 'text[data-id="' + id + '"]'}).join(",");
+    var nodeIdsCss = textIds.map(function(id) { return 'circle[data-id="' + id + '"]'}).join(",")
+    nodesG.selectAll(nodeIdsCss).classed('active', true);
     textsG.selectAll(textIdsCss).classed('hidden', false).moveToFront();
     linksG.selectAll('line[data-source="' + d.id + '"]').classed('active', true).moveToFront();
   }
 
   function hideDetails (d) {
+    // clean this up too
     textsG.selectAll('text').classed('hidden', true);
     linksG.selectAll('line').classed('active', false);
+    nodesG.selectAll('circle').classed('active', false);
   }
 
   // enter/exit display for links
@@ -320,6 +341,53 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
     link.exit().remove()
   }
 
+  function checkMovieLabels() {
+    var clientRects = {};
+    var filmLabelNodes = textsG.selectAll('text.movie, text.short')[0].map(function(elem) {
+      //debugger;
+      return {
+        node: elem,
+        clientRect: elem.getBoundingClientRect()
+      }
+    }).sort(function(a, b) {
+      // we want things sorted at roughly the same vertical level
+      var vertDiff = a.clientRect.top - b.clientRect.top;
+      if (vertDiff !== 0) { return vertDiff; }
+      return  a.clientRect.left - b.clientRect.left;
+    });
+    
+
+    for (var i = 0; i < filmLabelNodes.length - 1; ++i) {
+      if (isOverlap(filmLabelNodes[i].clientRect, filmLabelNodes[i + 1].clientRect)) {
+        nudgeNode(filmLabelNodes[i + 1].node, filmLabelNodes[i + 1].clientRect.height );
+        i++; // skip one more, so we don't nudge w.r.t an already nudged node
+      }
+    }
+
+    filmLabelNodes.forEach(function(synth) { synth.node = null; synth.clientRect = null; });
+  }
+
+  function nudgeNode(node, nudge) {
+    var currentY = Number(node.getAttribute('y'));
+    node.setAttribute('y', currentY + (nudge * 1.25));
+  }
+
+  function isOverlap(a, b) {
+    // works with client rects
+    // top: 478.5, right: 370.203125, bottom: 497.5, left: 194.71875, width: 175.484375…
+    return (_isHorizontalOverlap(a, b) && _isVerticalOverlap(a, b));
+  } 
+
+  function _isHorizontalOverlap(a, b) {
+    return a.left >= b.left && a.left <= b.right ||
+            b.left >= a.left && b.left <= a.right;
+
+  }
+
+  function _isVerticalOverlap(a, b) {
+      return a.top >= b.top && a.top <= b.bottom ||
+              b.top >= a.top && b.top <= a.bottom;
+  }
 
 
   function update() {
@@ -376,7 +444,7 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "blt",
       "playcount": 123,
-      order: 3,
+      order: 1.5,
       url: 'http://www.imdb.com/title/tt0280477'
     },
     {
@@ -391,7 +459,7 @@ window.DataMaker = function DataMaker() {
     {
       "name": "Turbo-Charged Prelude",
       "director": "Philip G. Atwell",
-      "type": "movie",
+      "type": "short",
       "id": "ff1.5",
       "playcount": 123,
       order: 1.5,
@@ -412,16 +480,16 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff3",
       "playcount": 123,
-      order: 7,
+      order: 6,
       url: 'http://www.imdb.com/title/tt0463985'
     },
     {
       "name": "Los Bandoleros",
       "director": "Vin Diesel",
-      "type": "movie",
+      "type": "short",
       "id": "ff3.5",
       "playcount": 123,
-      order: 3.5,
+      order: 2.5,
       url: 'http://www.imdb.com/title/tt1538503'
     },
     {
@@ -430,7 +498,7 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff4",
       "playcount": 123,
-      order: 4,
+      order: 3,
       url: 'http://www.imdb.com/title/tt1013752'
     },
     {
@@ -439,7 +507,7 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff5",
       "playcount": 123,
-      order: 5,
+      order: 4,
       url: 'http://www.imdb.com/title/tt1596343'
     },
     {
@@ -448,7 +516,7 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff6",
       "playcount": 123,
-      order: 6,
+      order: 5,
       url: 'http://www.imdb.com/title/tt1905041'
     },
     {
@@ -457,7 +525,7 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff7",
       "playcount": 123,
-      order: 8,
+      order: 7,
       url: 'http://www.imdb.com/title/tt2820852'
     },
     {
@@ -466,7 +534,7 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff8",
       "playcount": 123,
-      order: 9,
+      order: 8,
       url: 'http://www.imdb.com/title/tt4630562'
     },
     {
@@ -475,24 +543,27 @@ window.DataMaker = function DataMaker() {
       "type": "movie",
       "id": "ff9",
       "playcount": 123,
-      order: 10,
+      order: 9,
       url: 'http://www.imdb.com/title/tt5433138'
     },
     {
       "name": "Brian O'Conner",
       "actor": "Paul Walker",
+      "type": "cast",
       "id": "pw",
       url: 'http://www.imdb.com/character/ch0004175'
     },
     {
       name: "Dominic Toretto",
       actor: "Vin Diesel",
+      "type": "cast",
       id: "vd",
       url: 'http://www.imdb.com/character/ch0004171'
     },
     {
       name: "Han Seoul-Oh",
       actor: "Sung Kang",
+      "type": "cast",
       id: "sk",
       url: 'http://www.imdb.com/character/ch0063891',
       img: 'http://ia.media-imdb.com/images/M/MV5BMjkzNDMwMTIxM15BMl5BanBnXkFtZTcwMDgyNzE5NA@@._V1._SX100_SY140_.jpg'
@@ -500,30 +571,35 @@ window.DataMaker = function DataMaker() {
     {
       name: "Tej",
       actor: "Ludacris",
+      "type": "cast",
       id: "luda",
       url: 'http://www.imdb.com/character/ch0004183'
     },
     {
       name: "Roman Pearce",
       actor: "Tyrese",
+      "type": "cast",
       id: "ty",
       url: 'http://www.imdb.com/character/ch0089116'
     },
     {
       name: "Letty Ortiz",
       actor: "Michelle Rodriguez",
+      "type": "cast",
       id: "mr",
       url: 'http://www.imdb.com/character/ch0004176'
     },
     {
       name: "Mia",
       actor: "Jordana Brewster",
+      "type": "cast",
       id: "jb",
       url: 'http://www.imdb.com/character/ch0380086'
     },
     {
       name: "Monica Fuentes",
       actor: "Eva Mendes",
+      "type": "cast",
       id: "em",
       url: 'http://www.imdb.com/character/ch0004172',
       img: 'http://ia.media-imdb.com/images/M/MV5BMjE5MDE2OTY2Nl5BMl5BanBnXkFtZTYwNTU4NTE3._V1._SX100_SY140_.jpg'
@@ -531,18 +607,21 @@ window.DataMaker = function DataMaker() {
     {
       name: "Suki",
       actor: "Devon Aoki",
+      "type": "cast",
       id: "da",
       url: 'http://www.imdb.com/character/ch0004174',
       img: 'http://ia.media-imdb.com/images/M/MV5BMTUwOTI5OTI5N15BMl5BanBnXkFtZTYwODQ3NTE3._V1._CR0,0,485,485_SS90_.jpg'
     },
-    // {
-    //   name: "Girl",
-    //   actor: "Minka Kelly",
-    //   id: "girl"
-    // },
+    {
+      name: "Girl",
+      actor: "Minka Kelly",
+      "type": "cast",
+      id: "girl"
+    },
     {
       name: "Gisele",
       actor: "Gal Gadot",
+      "type": "cast",
       id: "gal",
       url: 'http://www.imdb.com/character/ch0139733',
       img: 'http://ia.media-imdb.com/images/M/MV5BMTU5MzgwOTIxMV5BMl5BanBnXkFtZTcwOTYyNzE5NA@@._V1._SX100_SY140_.jpg'

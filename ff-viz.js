@@ -616,7 +616,8 @@ window.DataMaker = function DataMaker() {
       name: "Girl",
       actor: "Minka Kelly",
       "type": "cast",
-      id: "girl"
+      id: "girl",
+      url: 'http://www.imdb.com/name/nm1310368/?ref_=nv_sr_1'
     },
     {
       name: "Gisele",
@@ -948,6 +949,11 @@ window.DataMaker = function DataMaker() {
       source: 'ff8',
       target: 'ff9',
       type: "chronology"
+    },
+    {
+      source: 'girl',
+      target: 'ff1.5',
+      type: 'cast'
     }
   ];
 

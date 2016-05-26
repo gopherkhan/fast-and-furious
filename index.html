@@ -13,7 +13,11 @@
     <script type="text/javascript">
       var partyNode = document.querySelector('.viz-party');
       var graphyGraph = new NetworkGraph(partyNode);
-      graphyGraph.init(DataMaker());
+
+      d3.json("data/ff-data.json", function(data) {
+        graphyGraph.init(data);  
+      })
+      ;
     </script>
   </body>
 </html>

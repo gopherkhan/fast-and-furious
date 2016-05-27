@@ -1,7 +1,9 @@
 # fast-and-furious
 A visualization of character connections across the various Fast and Furious films. A work in progress.
 
-![Fast and Furious Screenshot](https://pbs.twimg.com/media/Cg3rrHRU4AAEteG.jpg)
+Feel free to test out the latest state [here](http://www.chrisxnelson.com/fast-and-furious/)
+
+![Fast and Furious Screenshot](http://www.chrisxnelson.com/fast-and-furious/fastAndFurious.png)
 
 To use:
 

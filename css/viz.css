@@ -120,14 +120,15 @@ text {
 	height: 300px;
 	text-align: left;
 	border-radius: 6px;
+	padding: 15px;
 }
 
 .block {
-	display: inline-block;
-	width: 47%;
+	/*display: inline-block;
+	width: 45%;*/
 	vertical-align: top;
 }
 
 .right-block {
-	padding: 15px;
+	padding-top: 4px;
 }

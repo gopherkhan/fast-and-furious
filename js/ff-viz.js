@@ -305,21 +305,28 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       .text(function(d) { return d.name; });
   }
 
-  function showDetails (d) {
-
+  function _updateInfoBlock(d) {
     if (hoverPhoto) {
-      var point = d3.mouse(this);
-
       hoverPhoto.setAttribute('src', d.img || "");
+    }
+    if (infoContent) {  
       infoContent.innerHTML = buildLabel(d);
+    }
+
+    // revisit all this later.
       // var transform = 'translate(' + point[0] + 'px, ' + point[1] + 'px)';
       // window.console.log("@@@ constructed this transform: " + transform);
       // debugger;
+        //var point = d3.mouse(this);
       // hoverPhoto.style['transform'] = transform;
       // hoverPhoto.style['-webkit-transform'] = transform;
-      
-    }
+  }
 
+  function showDetails (d) {
+
+    _updateInfoBlock(d);
+
+    var lineKey;
     var textIds = [d.id];
     if (!isMovie(d)) {
       curLinksData.forEach(function (l) {
@@ -327,13 +334,21 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
           textIds.push(l.target.id);
         }
       });
+      lineKey = 'data-source';
+    } else {
+      curLinksData.forEach(function (l) {
+        if (l.target.id === d.id) {
+          textIds.push(l.source.id);
+        }
+        lineKey = 'data-target';
+      });
     }
     // a little sloppy here, but I'll consolidate another night.
     var textIdsCss = textIds.map(function(id) { return 'text[data-id="' + id + '"]'}).join(",");
-    var nodeIdsCss = textIds.map(function(id) { return 'circle[data-id="' + id + '"]'}).join(",")
+    var nodeIdsCss = textIds.map(function(id) { return 'circle[data-id="' + id + '"]'}).join(",");
     nodesG.selectAll(nodeIdsCss).classed('active', true);
     textsG.selectAll(textIdsCss).classed('hidden', false).moveToFront();
-    linksG.selectAll('line[data-source="' + d.id + '"]').classed('active', true).moveToFront();
+    linksG.selectAll('line.cast[' + lineKey + '="' + d.id + '"]').classed('active', true).moveToFront();
   }
 
   function buildLabel(d) {
@@ -366,7 +381,8 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; })
-      .attr("data-source", function (d) { return d.source.id; });
+      .attr("data-source", function (d) { return d.source.id; })
+      .attr("data-target", function (d) { return d.target.id; });
 
     link.exit().remove()
   }

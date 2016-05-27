@@ -11,6 +11,13 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
   var width = 900;
   var height = 800; // get these from bounding boxes
   var hoverPhoto = document.querySelector('.hover-photo');
+  var infoContent = document.querySelector('.info-block .right-block');
+
+  var labelFormat = {
+    'movie': [{ label: "Title", key: "name"}, {label: "Director", key: "director"}],
+    'short': [{ label: "Title", key: "name"}, {label: "Director", key: "director"}],
+    'cast': [{ label: "Character", key: "name"}, {label: "Actor", key: "actor"}]
+  };
 
   var margins = {
     movie: 25,
@@ -304,6 +311,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       var point = d3.mouse(this);
 
       hoverPhoto.setAttribute('src', d.img || "");
+      infoContent.innerHTML = buildLabel(d);
       // var transform = 'translate(' + point[0] + 'px, ' + point[1] + 'px)';
       // window.console.log("@@@ constructed this transform: " + transform);
       // debugger;
@@ -326,6 +334,14 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
     nodesG.selectAll(nodeIdsCss).classed('active', true);
     textsG.selectAll(textIdsCss).classed('hidden', false).moveToFront();
     linksG.selectAll('line[data-source="' + d.id + '"]').classed('active', true).moveToFront();
+  }
+
+  function buildLabel(d) {
+    var format = labelFormat[d.type];
+    if (!format) { window.console.log(" no format for type: " + d.type); return "";}
+    return format.map(function(meta) {
+      return "<div><strong>" + meta.label + "</strong>: <span>" + d[meta.key] + '</span></div>';
+    }).join("");
   }
 
   function hideDetails (d) {

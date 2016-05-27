@@ -112,7 +112,7 @@
     },
     {
       "name": "Fast & Furious 9",
-      "artist": "Party Boston",
+      "director": "TBD",
       "type": "movie",
       "id": "ff9",
       "playcount": 123,
@@ -198,7 +198,7 @@
       "type": "cast",
       "id": "girl",
       "url": "http://www.imdb.com/name/nm1310368/?ref_=nv_sr_1",
-      "img": "http://www.movie-moron.com/wp-content/gallery/review/fast-furious-2-review-2.jpg"
+      "img": "http://ia.media-imdb.com/images/M/MV5BMTA1MzcwNTQyNDJeQTJeQWpwZ15BbWU4MDMzMzY0NTgx._V1_UY317_CR3,0,214,317_AL_.jpg"
     },
     {
       "name": "Gisele",

@@ -6,8 +6,14 @@
   </head>
   <body>
     <h1>Fast and Furious Film Connections</h1>
-    <div class="viz-party background-container"></div>
-    <img class='hover-photo'></img>
+    <div class="info-block">
+      <div class="block left-block">
+        <img class='hover-photo'></img>
+      </div>
+      <div class="block right-block">
+      </div>
+    </div>
+    <div class="viz-party"></div>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="js/Tooltip.js" charset="utf-8"></script>
     <script src="js/ff-viz.js" charset="utf-8"></script>
@@ -15,9 +21,7 @@
       var partyNode = document.querySelector('.viz-party');
       var graphyGraph = new NetworkGraph(partyNode);
 
-      d3.json("data/ff-data.json", function(data) {
-        graphyGraph.init(data);  
-      });
+      d3.json("data/ff-data.json", graphyGraph.init);
     </script>
   </body>
 </html>

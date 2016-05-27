@@ -36,14 +36,16 @@
 .hover-photo {
 	border-radius: 15px;
 	opacity: 0.8;
-	/*position: absolute;
+	height: 376px;
+	/*border: 1px solid #FEF6EB;
+	position: absolute;
 	top: 0;
 	left: 0;*/
 }
 
 line {
 	fill: none;
-	stroke: "#FEF6EB";
+	stroke: #FEF6EB;
 }
 
 line.chronology {

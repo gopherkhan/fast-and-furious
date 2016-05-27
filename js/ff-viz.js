@@ -337,7 +337,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       lineKey = 'data-source';
     } else {
       curLinksData.forEach(function (l) {
-        if (l.target.id === d.id) {
+        if (l.target.id === d.id && l.source.type === 'cast') {
           textIds.push(l.source.id);
         }
         lineKey = 'data-target';

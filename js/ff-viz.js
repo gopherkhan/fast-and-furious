@@ -10,6 +10,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
   // http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/
   var width = 900;
   var height = 800; // get these from bounding boxes
+  var hoverPhoto = document.querySelector('.hover-photo');
 
   var margins = {
     movie: 25,
@@ -298,6 +299,19 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
   }
 
   function showDetails (d) {
+
+    if (hoverPhoto) {
+      var point = d3.mouse(this);
+
+      hoverPhoto.setAttribute('src', d.img || "");
+      // var transform = 'translate(' + point[0] + 'px, ' + point[1] + 'px)';
+      // window.console.log("@@@ constructed this transform: " + transform);
+      // debugger;
+      // hoverPhoto.style['transform'] = transform;
+      // hoverPhoto.style['-webkit-transform'] = transform;
+      
+    }
+
     var textIds = [d.id];
     if (!isMovie(d)) {
       curLinksData.forEach(function (l) {

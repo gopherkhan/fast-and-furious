@@ -28,6 +28,19 @@
 	color: #FEF6EB;
 }
 
+.background-container {
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.hover-photo {
+	border-radius: 15px;
+	opacity: 0.8;
+	/*position: absolute;
+	top: 0;
+	left: 0;*/
+}
+
 line {
 	fill: none;
 	stroke: "#FEF6EB";
@@ -91,4 +104,7 @@ text {
 	bottom: 0;
 	right: 0;
 	border: 2px solid green;
+	z-index: 4;
+	background-repeat: no-repeat;
+	background-size: contain;
 }

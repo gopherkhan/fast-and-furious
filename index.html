@@ -6,7 +6,8 @@
   </head>
   <body>
     <h1>Fast and Furious Film Connections</h1>
-    <div class="viz-party"></div>
+    <div class="viz-party background-container"></div>
+    <img class='hover-photo'></img>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="js/Tooltip.js" charset="utf-8"></script>
     <script src="js/ff-viz.js" charset="utf-8"></script>
@@ -16,8 +17,7 @@
 
       d3.json("data/ff-data.json", function(data) {
         graphyGraph.init(data);  
-      })
-      ;
+      });
     </script>
   </body>
 </html>

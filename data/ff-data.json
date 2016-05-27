@@ -113,14 +113,16 @@
       "actor": "Paul Walker",
       "type": "cast",
       "id": "pw",
-      "url": "http://www.imdb.com/character/ch0004175"
+      "url": "http://www.imdb.com/character/ch0004175",
+      "img": "http://vignette2.wikia.nocookie.net/fastandfurious/images/0/00/Paul.png/revision/latest/scale-to-width-down/250?cb=20150221185329"
     },
     {
       "name": "Dominic Toretto",
       "actor": "Vin Diesel",
       "type": "cast",
       "id": "vd",
-      "url": "http://www.imdb.com/character/ch0004171"
+      "url": "http://www.imdb.com/character/ch0004171",
+      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/8/8e/Dom.png/revision/latest/scale-to-width-down/250?cb=20150221185329"
     },
     {
       "name": "Han Seoul-Oh",
@@ -128,35 +130,39 @@
       "type": "cast",
       "id": "sk",
       "url": "http://www.imdb.com/character/ch0063891",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMjkzNDMwMTIxM15BMl5BanBnXkFtZTcwMDgyNzE5NA@@._V1._SX100_SY140_.jpg"
+      "img": "http://vignette2.wikia.nocookie.net/fastandfurious/images/d/d4/Han_Seoul-Oh_Profile.png/revision/latest/scale-to-width-down/250?cb=20150517073030"
     },
     {
       "name": "Tej",
       "actor": "Ludacris",
       "type": "cast",
       "id": "luda",
-      "url": "http://www.imdb.com/character/ch0004183"
+      "url": "http://www.imdb.com/character/ch0004183",
+      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/5/53/Tej_Parker_-_Han%27s_Funeral.jpg/revision/latest/scale-to-width-down/250?cb=20160109085021"
     },
     {
       "name": "Roman Pearce",
       "actor": "Tyrese",
       "type": "cast",
       "id": "ty",
-      "url": "http://www.imdb.com/character/ch0089116"
+      "url": "http://www.imdb.com/character/ch0089116",
+      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/7/7f/Roman_Pearce_Profile.png/revision/latest?cb=20150524105523"
     },
     {
       "name": "Letty Ortiz",
       "actor": "Michelle Rodriguez",
       "type": "cast",
       "id": "mr",
-      "url": "http://www.imdb.com/character/ch0004176"
+      "url": "http://www.imdb.com/character/ch0004176",
+      "img": "http://vignette4.wikia.nocookie.net/fastandfurious/images/9/9f/Michelle.png/revision/latest/scale-to-width-down/250?cb=20150221185330"
     },
     {
-      "name": "Mia",
+      "name": "Mia Toretto",
       "actor": "Jordana Brewster",
       "type": "cast",
       "id": "jb",
-      "url": "http://www.imdb.com/character/ch0380086"
+      "url": "http://www.imdb.com/character/ch0380086",
+      "img": "http://vignette3.wikia.nocookie.net/fastandfurious/images/f/f7/Fast_Five_image-32.jpg/revision/latest/scale-to-width-down/250?cb=20130525032215"
     },
     {
       "name": "Monica Fuentes",
@@ -164,7 +170,7 @@
       "type": "cast",
       "id": "em",
       "url": "http://www.imdb.com/character/ch0004172",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMjE5MDE2OTY2Nl5BMl5BanBnXkFtZTYwNTU4NTE3._V1._SX100_SY140_.jpg"
+      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/c/c8/Monica.png/revision/latest/scale-to-width-down/250?cb=20120815202038"
     },
     {
       "name": "Suki",
@@ -172,14 +178,15 @@
       "type": "cast",
       "id": "da",
       "url": "http://www.imdb.com/character/ch0004174",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMTUwOTI5OTI5N15BMl5BanBnXkFtZTYwODQ3NTE3._V1._CR0,0,485,485_SS90_.jpg"
+      "img": "http://ia.media-imdb.com/images/M/MV5BMTUwOTI5OTI5N15BMl5BanBnXkFtZTYwODQ3NTE3._V1_SX640_SY720_.jpg"
     },
     {
       "name": "Girl",
       "actor": "Minka Kelly",
       "type": "cast",
       "id": "girl",
-      "url": "http://www.imdb.com/name/nm1310368/?ref_=nv_sr_1"
+      "url": "http://www.imdb.com/name/nm1310368/?ref_=nv_sr_1",
+      "img": "http://www.movie-moron.com/wp-content/gallery/review/fast-furious-2-review-2.jpg"
     },
     {
       "name": "Gisele",
@@ -187,7 +194,7 @@
       "type": "cast",
       "id": "gal",
       "url": "http://www.imdb.com/character/ch0139733",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMTU5MzgwOTIxMV5BMl5BanBnXkFtZTcwOTYyNzE5NA@@._V1._SX100_SY140_.jpg"
+      "img": "http://vignette3.wikia.nocookie.net/fastandfurious/images/1/1e/Gisele.png/revision/latest/scale-to-width-down/250?cb=20130213194901"
     }
   ],
 

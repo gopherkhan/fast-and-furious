@@ -177,6 +177,14 @@
       "img": "http://vignette3.wikia.nocookie.net/fastandfurious/images/f/f7/Fast_Five_image-32.jpg/revision/latest/scale-to-width-down/250?cb=20130525032215"
     },
     {
+      "name": "Vince",
+      "actor": "Matt Schulze",
+      "type": "cast",
+      "id": "ms",
+      "url": "http://www.imdb.com/character/ch0004184/?ref_=tt_cl_t6",
+      "img": "http://ia.media-imdb.com/images/M/MV5BMjE3MDEzMzEyOF5BMl5BanBnXkFtZTcwOTgxNzE5NA@@._V1_SX190_CR0,0,180,250_.jpg"
+    },
+    {
       "name": "Monica Fuentes",
       "actor": "Eva Mendes",
       "type": "cast",
@@ -698,6 +706,16 @@
     {
       "source": "ct",
       "target": "ff8",
+      "type": "cast"
+    },
+    {
+      "source": "ms",
+      "target": "ff1",
+      "type": "cast"
+    },
+    {
+      "source": "ms",
+      "target": "ff5",
       "type": "cast"
     }
   ]

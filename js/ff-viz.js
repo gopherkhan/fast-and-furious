@@ -49,7 +49,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       // tooltip = Tooltip("vis-tooltip", 230),
       // charge used in force layout
       charge = function(node) {
-        return -Math.pow(node.numLinks, 2.0) / 2;
+        return -Math.pow(node.numLinks, 2.0) / 1.5;
       };
 
   function init(data) {
@@ -167,7 +167,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       force.on("tick", forceTick)
               .charge(function(d) {
                 if (isMovie(d)) {
-                  return -200;
+                  return -2000;
                 }
                 return -20 * Math.max(d.numLinks, d.span);
               })
@@ -176,7 +176,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
                   return 80;
                 }
                 var base = Math.max(d.source.numLinks, d.source.span);
-                return Math.max(base * 40, 120);
+                return Math.max(base * 50, 280);
               });
     } else if (layout == "radial") {
       force.on("tick", radialTick)

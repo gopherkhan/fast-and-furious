@@ -255,6 +255,22 @@
       "id": "lb",
       "url": "http://www.imdb.com/character/ch0004177/?ref_=tt_cl_t1",
       "img": "http://vignette3.wikia.nocookie.net/fastandfurious/images/2/22/Sean_Boswell.jpg"
+    },
+    {
+      "name": "Ramsey",
+      "actor": "Nathalie Emmanuel",
+      "id": "ne",
+      "type": "cast",
+      "url": "http://www.imdb.com/name/nm2812026/?ref_=tt_cl_t3",
+      "img": "http://ia.media-imdb.com/images/M/MV5BMTM3NzQ4ODU0M15BMl5BanBnXkFtZTcwMDM4Njg3OA@@._V1_UY317_CR12,0,214,317_AL_.jpg"
+    },
+    {
+      "name": "Cipher",
+      "actor": "Charlize Theron",
+      "id": "ct",
+      "type": "cast",
+      "url": "http://www.imdb.com/name/nm0000234/?ref_=tt_cl_t2",
+      "img": "https://pbs.twimg.com/media/CjtNkSTWYAA-lJ1.jpg"
     }
   ],
 
@@ -667,6 +683,21 @@
     {
       "source": "lb",
       "target": "ff9",
+      "type": "cast"
+    },
+    {
+      "source": "ne",
+      "target": "ff7",
+      "type": "cast"
+    },
+    {
+      "source": "ne",
+      "target": "ff8",
+      "type": "cast"
+    },
+    {
+      "source": "ct",
+      "target": "ff8",
       "type": "cast"
     }
   ]

@@ -46,6 +46,7 @@
 line {
 	fill: none;
 	stroke: #FEF6EB;
+	opacity: 0.8;
 }
 
 line.chronology {
@@ -56,6 +57,7 @@ line.chronology {
 line.active {
 	stroke: #C25B56;
 	stroke-width: 3px;
+	opacity: 1;
 }
 
 line.active.chronology {

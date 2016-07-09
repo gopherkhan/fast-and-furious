@@ -150,7 +150,7 @@
       "type": "cast",
       "id": "luda",
       "url": "http://www.imdb.com/character/ch0004183",
-      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/5/53/Tej_Parker_-_Han%27s_Funeral.jpg/revision/latest/scale-to-width-down/250?cb=20160109085021"
+      "img": "images/tej.jpg"
     },
     {
       "name": "Roman Pearce",
@@ -182,7 +182,7 @@
       "type": "cast",
       "id": "ms",
       "url": "http://www.imdb.com/character/ch0004184/?ref_=tt_cl_t6",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMjE3MDEzMzEyOF5BMl5BanBnXkFtZTcwOTgxNzE5NA@@._V1_SX190_CR0,0,180,250_.jpg"
+      "img": "images/vince.jpg"
     },
     {
       "name": "Monica Fuentes",
@@ -198,15 +198,14 @@
       "type": "cast",
       "id": "da",
       "url": "http://www.imdb.com/character/ch0004174",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMTUwOTI5OTI5N15BMl5BanBnXkFtZTYwODQ3NTE3._V1_SX640_SY720_.jpg"
-    },
+      "img": "images/suki.jpg"  },
     {
       "name": "The Girl",
       "actor": "Minka Kelly",
       "type": "cast",
       "id": "girl",
       "url": "http://www.imdb.com/name/nm1310368/?ref_=nv_sr_1",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMTA1MzcwNTQyNDJeQTJeQWpwZ15BbWU4MDMzMzY0NTgx._V1_UY317_CR3,0,214,317_AL_.jpg"
+      "img": "images/theGirl.jpg"
     },
     {
       "name": "Gisele",
@@ -222,7 +221,7 @@
       "type": "cast",
       "id": "jc",
       "url": "http://www.imdb.com/character/ch0022643/?ref_=ttfc_fc_cl_t44",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMjA5MjI2NzAwN15BMl5BanBnXkFtZTYwNDQzMTQ3._V1_SX640_SY720_.jpg"
+      "img": "images/steveChoe.jpg"
     },
     {
       "name": "Elena",
@@ -270,7 +269,7 @@
       "id": "ne",
       "type": "cast",
       "url": "http://www.imdb.com/name/nm2812026/?ref_=tt_cl_t3",
-      "img": "http://ia.media-imdb.com/images/M/MV5BMTM3NzQ4ODU0M15BMl5BanBnXkFtZTcwMDM4Njg3OA@@._V1_UY317_CR12,0,214,317_AL_.jpg"
+      "img": "images/ramsey.jpg"
     },
     {
       "name": "Cipher",

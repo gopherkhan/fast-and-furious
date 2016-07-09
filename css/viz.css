@@ -100,6 +100,7 @@ text {
 	font-family: "Raleway", Helvetica, 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 	/*font-family: Tahoma,Verdana,Segoe,sans-serif;*/
 	fill: #F7F8FD;
+	text-shadow: 1px 1px 2px #000000;
 }
 
 .hidden {

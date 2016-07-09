@@ -10,13 +10,14 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
   // http://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/
   var width = 900;
   var height = 800; // get these from bounding boxes
+  var filmCount = 11;
   var hoverPhoto = document.querySelector('.hover-photo');
   var infoContent = document.querySelector('.info-block .right-block');
 
   var labelFormat = {
-    'movie': [{ label: "Title", key: "name"}, {label: "Director", key: "director"}],
-    'short': [{ label: "Title", key: "name"}, {label: "Director", key: "director"}],
-    'cast': [{ label: "Character", key: "name"}, {label: "Actor", key: "actor"}]
+    'movie': [{ label: "Title", key: "name"}, {label: "Director", key: "director"}, {label: "Year", key: "year"}],
+    'short': [{ label: "Title", key: "name"}, {label: "Director", key: "director"}, {label: "Year", key: "year"}],
+    'cast': [{ label: "Character", key: "name"}, {label: "Actor", key: "actor"}, {label: "Films", key: "links"}]
   };
 
   var margins = {
@@ -127,7 +128,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       n.x = Math.floor(Math.random() * width);
       n.y = Math.floor(Math.random() * height);
       // add radius to the node so we can use it later
-      n.radius = circleRadius(n.playcount);
+      //n.radius = circleRadius(n.playcount);
 
       var links = data.links.filter(function(l) {
         return l.source === n.id || l.target === n.id;
@@ -169,14 +170,15 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
                 if (isMovie(d)) {
                   return -2000;
                 }
-                return -20 * Math.max(d.numLinks, d.span);
+                return -200 * (d.span + d.numLinks);
               })
               .linkDistance(function(d) {
                 if (d.type === 'chronology') {
                   return 80;
                 }
-                var base = Math.max(d.source.numLinks, d.source.span);
-                return Math.max(base * 50, 280);
+                //var base = d.source.span; //Math.max(d.source.numLinks, d.source.span);
+                return Math.max(d.source.span, d.source.numLinks) * 45;
+                //return Math.max(base * 50, 280);
               });
     } else if (layout == "radial") {
       force.on("tick", radialTick)
@@ -199,14 +201,14 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
     node
       .attr("cx", function (d) {
         if (isMovie(d)) {
-          d.x = d.order * (width / 10);
+          d.x = d.order * (width / filmCount);
         }
         return d.x;
       })
       .attr("cy", function (d) {
         if (isMovie(d)) {
-          var fudge = d.id === 'blt' ? 60 : 0;
-          d.y = (height / 2) - fudge;
+          //var fudge = d.id === 'blt' ? 60 : 0;
+          d.y = (height / 2);
         }
         return d.y;
       });
@@ -355,8 +357,19 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
     var format = labelFormat[d.type];
     if (!format) { window.console.log(" no format for type: " + d.type); return "";}
     return format.map(function(meta) {
-      return "<div><strong>" + meta.label + "</strong>: <span>" + d[meta.key] + '</span></div>';
+      var val = meta.key === 'links' ? buildList(d) : d[meta.key];
+      return "<div><strong>" + meta.label + "</strong> <span>" + val + '</span></div>';
     }).join("");
+  }
+
+  function buildList(d) {
+    var names = [];
+    curLinksData.forEach(function (l) {
+      if (l.source.id === d.id) {
+        names.push(l.target.name);
+      }
+    });
+    return "<br>" + names.join("<br>");
   }
 
   function hideDetails (d) {
@@ -463,7 +476,7 @@ window.NetworkGraph = function NetworkGraph(targetNode) {
       // # reset links so they do not interfere with
       // # other layouts. updateLinks() will be called when
       // # force is done animating.
-      force.links([])
+      force.links([]);
       // # if present, remove them from svg
       if (link) {
         link.data([]).exit().remove();

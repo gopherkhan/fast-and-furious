@@ -1,18 +1,9 @@
 {
  "nodes": [
     {
-      "name": "Better Luck Tomorrow",
-      "director": "Justin Lin",
-      "type": "movie",
-      "id": "blt",
-      "playcount": 123,
-      "order": 1.5,
-      "url": "http://www.imdb.com/title/tt0280477",
-      "img": "http://www.popkornjunkie.com/images/blt_poster.jpg"
-    },
-    {
       "name": "The Fast and the Furious",
       "director": "Rob Cohen",
+      "year": 2001,
       "type": "movie",
       "id": "ff1",
       "playcount": 123,
@@ -21,8 +12,20 @@
       "img": "http://images-cdn.moviepilot.com/image/upload/c_scale,h_1500,w_1000/t_mp_quality/the-fast-and-the-furious-new-fast-furious-7-poster-brings-the-awesome-previous-6-posters-bring-the-sad-jpeg-95027.jpg"
     },
     {
+      "name": "Better Luck Tomorrow",
+      "director": "Justin Lin",
+      "year": 2002,
+      "type": "movie",
+      "id": "blt",
+      "playcount": 123,
+      "order": 3,
+      "url": "http://www.imdb.com/title/tt0280477",
+      "img": "http://www.popkornjunkie.com/images/blt_poster.jpg"
+    },
+    {
       "name": "Turbo-Charged Prelude",
       "director": "Philip G. Atwell",
+      "year": 2003,
       "type": "short",
       "id": "ff1.5",
       "playcount": 123,
@@ -34,6 +37,7 @@
       "name": "2 Fast 2 Furious",
       "director": "John Singleton",
       "type": "movie",
+      "year": 2003,
       "id": "ff2",
       "playcount": 123,
       "order": 2,
@@ -43,80 +47,88 @@
     {
       "name": "The Fast and the Furious: Tokyo Drift",
       "director": "Justin Lin",
+      "year": 2006,
       "type": "movie",
       "id": "ff3",
       "playcount": 123,
-      "order": 6,
+      "order": 7,
       "url": "http://www.imdb.com/title/tt0463985",
       "img": "http://www.impawards.com/2006/posters/fast_and_the_furious_tokyo_drift_xlg.jpg"
     },
     {
       "name": "Los Bandoleros",
       "director": "Vin Diesel",
+      "year": 2009,
       "type": "short",
       "id": "ff3.5",
       "playcount": 123,
-      "order": 2.5,
+      "order": 3.5,
       "url": "http://www.imdb.com/title/tt1538503",
       "img": "https://upload.wikimedia.org/wikipedia/en/0/0a/Los_Bandoleros_FilmPoster.jpeg"
     },
     {
       "name": "Fast & Furious",
       "director": "Justin Lin",
+      "year": 2009,
       "type": "movie",
       "id": "ff4",
       "playcount": 123,
-      "order": 3,
+      "order": 4,
       "url": "http://www.imdb.com/title/tt1013752",
       "img": "http://c.funrahi.com/movies/h/fast-furious-6/poster3_d.jpg"
     },
     {
       "name": "Fast Five",
       "director": "Justin Lin",
+      "year": 2011,
       "type": "movie",
       "id": "ff5",
       "playcount": 123,
-      "order": 4,
+      "order": 5,
       "url": "http://www.imdb.com/title/tt1596343",
       "img": "http://images4.fanpop.com/image/photos/20900000/Fast-Five-Poster-the-fast-and-the-furious-movies-20980562-1013-1500.jpg"
     },
     {
       "name": "Furious 6",
       "director": "Justin Lin",
+      "year": 2013,
       "type": "movie",
       "id": "ff6",
       "playcount": 123,
-      "order": 5,
+      "order": 6,
       "url": "http://www.imdb.com/title/tt1905041",
       "img": "http://www.filmofilia.com/wp-content/uploads/2013/02/FAST-AND-FURIOUS-6-poster.jpg"
     },
     {
       "name": "Furious 7",
       "director": "James Wan",
+      "year": 2016,
       "type": "movie",
       "id": "ff7",
       "playcount": 123,
-      "order": 7,
+      "order": 8,
       "url": "http://www.imdb.com/title/tt2820852",
       "img": "http://media.comicbook.com/uploads1/2015/03/furious-7-poster-126324.jpg"
     },
     {
       "name": "Fast 8",
       "director": "F. Gary Gray",
+      "year": 2017,
       "type": "movie",
       "id": "ff8",
       "playcount": 123,
-      "order": 8,
+      "order": 9,
       "url": "http://www.imdb.com/title/tt4630562",
       "img": "http://static.srcdn.com/slir/w620-h877-q90-c620:877/wp-content/uploads/fast-furious-8-poster.jpg"
     },
     {
       "name": "Fast & Furious 9",
       "director": "TBD",
+      "year": 2019,
       "type": "movie",
       "id": "ff9",
       "playcount": 123,
-      "order": 9,
+      "order": 10,
       "url": "http://www.imdb.com/title/tt5433138",
       "img": "http://static.celebuzz.com/uploads/2016/02/vin-diesel-fast-furious-02-03-2016.jpg"
     },
@@ -350,11 +362,6 @@
     {
       "source": "pw",
       "target": "ff6",
-      "type": "cast"
-    },
-    {
-      "source": "pw",
-      "target": "ff7",
       "type": "cast"
     },
     {

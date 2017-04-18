@@ -53,7 +53,7 @@
       "playcount": 123,
       "order": 7,
       "url": "http://www.imdb.com/title/tt0463985",
-      "img": "http://www.impawards.com/2006/posters/fast_and_the_furious_tokyo_drift_xlg.jpg"
+      "img": "images/tokyoDrift.jpg"
     },
     {
       "name": "Los Bandoleros",
@@ -97,7 +97,7 @@
       "playcount": 123,
       "order": 6,
       "url": "http://www.imdb.com/title/tt1905041",
-      "img": "http://www.filmofilia.com/wp-content/uploads/2013/02/FAST-AND-FURIOUS-6-poster.jpg"
+      "img": "images/fast6.jpg"
     },
     {
       "name": "Furious 7",
@@ -111,7 +111,7 @@
       "img": "http://media.comicbook.com/uploads1/2015/03/furious-7-poster-126324.jpg"
     },
     {
-      "name": "Fast 8",
+      "name": "The Fate of the Furious",
       "director": "F. Gary Gray",
       "year": 2017,
       "type": "movie",
@@ -119,7 +119,7 @@
       "playcount": 123,
       "order": 9,
       "url": "http://www.imdb.com/title/tt4630562",
-      "img": "http://static.srcdn.com/slir/w620-h877-q90-c620:877/wp-content/uploads/fast-furious-8-poster.jpg"
+      "img": "images/fateFurious.jpg"
     },
     {
       "name": "Fast & Furious 9",
@@ -170,7 +170,7 @@
       "type": "cast",
       "id": "ty",
       "url": "http://www.imdb.com/character/ch0089116",
-      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/7/7f/Roman_Pearce_Profile.png/revision/latest?cb=20150524105523"
+      "img": "images/tyrese.jpg"
     },
     {
       "name": "Letty Ortiz",
@@ -178,7 +178,7 @@
       "type": "cast",
       "id": "mr",
       "url": "http://www.imdb.com/character/ch0004176",
-      "img": "http://vignette4.wikia.nocookie.net/fastandfurious/images/9/9f/Michelle.png/revision/latest/scale-to-width-down/250?cb=20150221185330"
+      "img": "images/letty.jpg"
     },
     {
       "name": "Mia Toretto",
@@ -202,7 +202,7 @@
       "type": "cast",
       "id": "em",
       "url": "http://www.imdb.com/character/ch0004172",
-      "img": "http://vignette1.wikia.nocookie.net/fastandfurious/images/c/c8/Monica.png/revision/latest/scale-to-width-down/250?cb=20120815202038"
+      "img": "images/mendez.jpg"
     },
     {
       "name": "Suki",
@@ -260,12 +260,36 @@
       "img": "http://kenh14.vcmedia.vn/zoom/400_400/5rlgfkdN55CYJRhfWf2vfextv8dIqp/Image/2015/04/fast7imax/kurt-russell-fast-furious-7-8-7f476.jpg"
     },
     {
+      "name": "Little Nobody",
+      "actor": "Scott Eastwood",
+      "type": "cast",
+      "id": "little",
+      "url": "http://www.imdb.com/name/nm2207222/?ref_=ttfc_fc_cl_t13",
+      "img": "images/littleNobody.jpg"
+    },
+    {
+      "name": "Owen Shaw",
+      "actor": "Luke Evans",
+      "type": "cast",
+      "id": "os",
+      "url": "http://www.imdb.com/name/nm1812656/?ref_=ttfc_fc_cl_t10",
+      "img": "images/owen.jpg"
+    },
+    {
+      "name": "Magdalene Shaw",
+      "actor": "Helen Mirren",
+      "type": "cast",
+      "id": "mirren",
+      "url": "http://www.imdb.com/name/nm0000545/?ref_=ttfc_fc_cl_t122",
+      "img": "images/mirren.jpg"
+    },
+    {
       "name": "Deckard Shaw",
       "actor": "Jason Statham",
       "type": "cast",
       "id": "ds",
       "url": "http://www.imdb.com/character/ch0503802/?ref_=nm_flmg_act_2",
-      "img": "https://s-media-cache-ak0.pinimg.com/736x/31/a7/5a/31a75aef47347249bf79b54647ea5868.jpg"
+      "img": "images/statham.jpg"
     },
     {
       "name": "Sean Boswell",
@@ -289,7 +313,23 @@
       "id": "ct",
       "type": "cast",
       "url": "http://www.imdb.com/name/nm0000234/?ref_=tt_cl_t2",
-      "img": "https://pbs.twimg.com/media/CjtNkSTWYAA-lJ1.jpg"
+      "img": "images/theron.png"
+    },
+    {
+      "name": "Leo",
+      "actor": "Tego Calderon",
+      "id": "tego",
+      "type": "cast",
+      "url": "http://www.imdb.com/name/nm1578798/?ref_=ttfc_fc_cl_t28",
+      "img": "images/tego.jpg"
+    },
+    {
+      "name": "Santos",
+      "actor": "Don Omar",
+      "id": "santos",
+      "type": "cast",
+      "url": "http://www.imdb.com/name/nm1885797/?ref_=ttfc_fc_cl_t29",
+      "img": "images/santos.jpg"
     }
   ],
 
@@ -510,6 +550,66 @@
       "type": "cast"
     },
     {
+      "source": "santos",
+      "target": "ff3.5",
+      "type": "cast"
+    },
+    {
+      "source": "santos",
+      "target": "ff4",
+      "type": "cast"
+    },
+    {
+      "source": "santos",
+      "target": "ff5",
+      "type": "cast"
+    },
+    {
+      "source": "santos",
+      "target": "ff8",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff3.5",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff4",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff5",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff8",
+      "type": "cast"
+    },
+     {
+      "source": "tego",
+      "target": "ff3.5",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff4",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff5",
+      "type": "cast"
+    },
+    {
+      "source": "tego",
+      "target": "ff5",
+      "type": "cast"
+    },
+    {
       "source": "ty",
       "target": "ff2",
       "type": "cast"
@@ -635,6 +735,11 @@
       "type": "cast"
     },
     {
+      "source": "ep",
+      "target": "ff8",
+      "type": "cast"
+    },
+    {
       "source": "dj",
       "target": "ff5",
       "type": "cast"
@@ -665,6 +770,26 @@
       "type": "cast"
     },
     {
+      "source": "little",
+      "target": "ff8",
+      "type": "cast"
+    },
+    {
+      "source": "os",
+      "target": "ff6",
+      "type": "cast"
+    },
+    {
+      "source": "os",
+      "target": "ff7",
+      "type": "cast"
+    },
+    {
+      "source": "os",
+      "target": "ff8",
+      "type": "cast"
+    },
+    {
       "source": "ds",
       "target": "ff6",
       "type": "cast"
@@ -676,6 +801,11 @@
     },
     {
       "source": "ds",
+      "target": "ff8",
+      "type": "cast"
+    },
+    {
+      "source": "mirren",
       "target": "ff8",
       "type": "cast"
     },

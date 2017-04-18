@@ -1,4 +1,9 @@
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
+@font-face {
+    font-family: coolvetica;
+    src: url(../fonts/coolvetica%20rg.ttf);
+}
+
 
   /*
 
@@ -23,9 +28,10 @@
 	height: 100%;
 	text-align: center;
 	background-color: #525564;
-	font-family: "Raleway", Helvetica, 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	font-family: 'coolvetica', "Raleway", Helvetica, 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 	/*font-family: Tahoma,Verdana,Segoe,sans-serif; */
 	color: #FEF6EB;
+	letter-spacing: 1.15px;
 }
 
 .background-container {

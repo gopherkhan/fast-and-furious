@@ -40,7 +40,7 @@
 }
 
 .hover-photo {
-	border-radius: 15px;
+	border-radius: 9px;
 	/*opacity: 0.8; */
 	height: 275px;
 	/*border: 1px solid #FEF6EB;
@@ -52,6 +52,7 @@
 line {
 	fill: none;
 	stroke: lightgrey;
+	transition: stroke 0.1s ease-in-out, stroke-width 0.1s ease-in-out;
 }
 
 line.cast {
@@ -80,6 +81,7 @@ circle {
 	fill: darkolivegreen; /* #74828F; */
 	r: 8px;
 	cursor: pointer;
+	transition: stroke 0.1s ease-in-out, stroke-width 0.1s ease-in-out;
 }
 
 circle.movie {
